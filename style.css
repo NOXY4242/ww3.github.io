@@ -32,21 +32,21 @@ body {
     height: 100%;
     background-size: cover;
     background-position: center;
-    transition: opacity 1s ease-in-out;
     opacity: 0;
+    transition: opacity 1s ease-in-out;
 }
 
 /* Animation de transition des slides */
 @keyframes slideFade {
     0% { opacity: 0; }
-    20% { opacity: 1; }
-    80% { opacity: 1; }
+    10% { opacity: 1; }
+    90% { opacity: 1; }
     100% { opacity: 0; }
 }
 
 /* Appliquer l'animation sur chaque slide */
 .slide {
-    animation: slideFade 24s infinite; /* 8s par image, 3 images = 24s */
+    animation: slideFade 40s infinite; /* 8s par image, 5 images = 40s */
 }
 
 /* Décalage des animations pour chaque slide */
@@ -59,7 +59,12 @@ body {
 .slide:nth-child(3) {
     animation-delay: 16s; /* Troisième image commence à 16s */
 }
-/* Continuez à ajouter des images en suivant le même modèle */
+.slide:nth-child(4) {
+    animation-delay: 24s; /* Quatrième image commence à 24s */
+}
+.slide:nth-child(5) {
+    animation-delay: 32s; /* Cinquième image commence à 32s */
+}
 
 /* 🔥 Logo centré */
 .loading-container {
