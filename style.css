@@ -1,0 +1,114 @@
+/* Réinitialisation */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #2B3134;
+    font-family: "Gill Sans", sans-serif;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+/* 🎥 Diaporama */
+.slideshow {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -1;
+}
+
+.slide {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    transition: opacity 1s ease-in-out;
+    opacity: 0;
+}
+
+/* Animation de transition des slides */
+@keyframes slideFade {
+    0% { opacity: 0; }
+    20% { opacity: 1; }
+    80% { opacity: 1; }
+    100% { opacity: 0; }
+}
+
+/* Appliquer l'animation sur chaque slide */
+.slide {
+    animation: slideFade 24s infinite; /* 8s par image, 3 images = 24s */
+}
+
+/* Décalage des animations pour chaque slide */
+.slide:nth-child(1) {
+    animation-delay: 0s; /* Première image commence à 0s */
+}
+.slide:nth-child(2) {
+    animation-delay: 8s; /* Deuxième image commence à 8s */
+}
+.slide:nth-child(3) {
+    animation-delay: 16s; /* Troisième image commence à 16s */
+}
+/* Continuez à ajouter des images en suivant le même modèle */
+
+/* 🔥 Logo centré */
+.loading-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 2;
+}
+
+.logo-shake {
+    width: 250px;
+    height: 250px;
+    animation: shakeLogo 3s ease-in-out infinite;
+}
+
+.logo-shake img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+/* 🔄 Animation de secousse */
+@keyframes shakeLogo {
+    0% {
+        transform: translate(-50%, -50%) translateX(0);
+    }
+    25% {
+        transform: translate(-50%, -50%) translateX(-3px);
+    }
+    50% {
+        transform: translate(-50%, -50%) translateX(3px);
+    }
+    75% {
+        transform: translate(-50%, -50%) translateX(-3px);
+    }
+    100% {
+        transform: translate(-50%, -50%) translateX(0);
+    }
+}
+
+/* 🔒 Texte en bas - "Tout droit réservé à la communauté Medal" */
+.footer-text {
+    position: absolute;
+    bottom: 10px;
+    text-align: center;
+    width: 100%;
+    font-family: 'Poppins', sans-serif; /* Poppins en gras */
+    font-size: 10px; /* Taille augmentée pour plus de visibilité */
+    color: #fff;
+    z-index: 2;
+}

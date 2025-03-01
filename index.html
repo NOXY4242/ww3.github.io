@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chargement du Serveur</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap" rel="stylesheet"> <!-- Import de la police Poppins -->
+</head>
+<body>
+    <!-- 🎥 Diaporama -->
+    <div class="slideshow">
+        <div class="slide" style="background-image: url('assets/posing1.png');"></div>
+        <div class="slide" style="background-image: url('assets/posing2.png');"></div>
+        <div class="slide" style="background-image: url('assets/posing3.png');"></div>
+        <div class="slide" style="background-image: url('assets/posing4.png');"></div> <!-- Nouvelle image -->
+        <div class="slide" style="background-image: url('assets/posing5.png');"></div>
+    </div>
+    
+    <!-- 🔥 Logo centré -->
+    <div class="loading-container">
+        <div class="logo-shake">
+            <img src="assets/logo.png" alt="Logo">
+        </div>
+    </div>
+
+    <!-- 🎶 Audio MP3 depuis Dropbox -->
+    <audio id="audio-player" autoplay>
+        <source src="https://www.dropbox.com/scl/fi/9emmouod43biunw3dzyc1/Tizi-Melloul.mp3?rlkey=f1559ug7hokpestrabe7y9sop&st=jvepo56c&dl=1" type="audio/mpeg">
+        Votre navigateur ne supporte pas l'élément audio.
+    </audio>
+
+    <!-- 🔒 Texte "Tout droit réservé" -->
+    <div class="footer-text">
+        ©2025 Tout droit réservé à la communauté Medal
+    </div>
+
+    <script>
+        window.onload = function() {
+            var audio = document.getElementById("audio-player");
+            audio.play();
+            audio.volume = 0.05;
+        };
+    </script>
+</body>
+</html>
