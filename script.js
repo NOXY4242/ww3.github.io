@@ -64,7 +64,9 @@ setInterval(changeTip, 6000);
 
 /* ===== MUSIQUES RANDOM ===== */
 const musics = [
-    "music/music1.mp3"
+    "music/music1.mp3",
+    "music/music2.mp3",
+    "music/music3.mp3"
 ];
 
 shuffle(musics);
@@ -88,3 +90,4 @@ function GameDetails() {}
 function SetStatusChanged(status) {
     document.getElementById("status").innerText = status;
 }
+
