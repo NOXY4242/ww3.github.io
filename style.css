@@ -1,29 +1,25 @@
-/* Réinitialisation */
+@font-face {
+    font-family: "Oswald";
+    src: url("fonts/Oswald-Regular.woff2") format("woff2");
+}
+
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+    font-family: "Oswald", Arial, sans-serif;
+    color: #e6b77a;
 }
 
 body {
-    background: #2B3134;
-    font-family: "Gill Sans", sans-serif;
-    width: 100%;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
     overflow: hidden;
+    background: black;
 }
 
-/* 🎥 Diaporama */
-.slideshow {
-    position: absolute;
+/* Slideshow */
+#slideshow {
+    position: fixed;
     width: 100%;
     height: 100%;
-    overflow: hidden;
-    z-index: -1;
 }
 
 .slide {
@@ -32,88 +28,73 @@ body {
     height: 100%;
     background-size: cover;
     background-position: center;
+    background-repeat: no-repeat;
+    filter: brightness(35%);
     opacity: 0;
-    transition: opacity 1s ease-in-out;
+    transition: opacity 2.5s ease-in-out;
 }
 
-/* Animation de transition des slides */
-@keyframes slideFade {
-    0% { opacity: 0; }
-    10% { opacity: 1; }
-    90% { opacity: 1; }
-    100% { opacity: 0; }
+.slide.active {
+    opacity: 1;
 }
 
-/* Appliquer l'animation sur chaque slide */
-.slide {
-    animation: slideFade 40s infinite; /* 8s par image, 5 images = 40s */
+/* Overlay sombre */
+.overlay {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.048);
 }
 
-/* Décalage des animations pour chaque slide */
-.slide:nth-child(1) {
-    animation-delay: 0s; /* Première image commence à 0s */
-}
-.slide:nth-child(2) {
-    animation-delay: 8s; /* Deuxième image commence à 8s */
-}
-.slide:nth-child(3) {
-    animation-delay: 16s; /* Troisième image commence à 16s */
-}
-.slide:nth-child(4) {
-    animation-delay: 24s; /* Quatrième image commence à 24s */
-}
-.slide:nth-child(5) {
-    animation-delay: 32s; /* Cinquième image commence à 32s */
+/* Fade bas (plus sombre) */
+.fade-bottom {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 30%;
+    background: linear-gradient(
+        to top,
+        rgba(202,160,96,0.55),
+        transparent
+    );
 }
 
-/* 🔥 Logo centré */
-.loading-container {
+/* Centre */
+.center {
     position: absolute;
     top: 50%;
     left: 50%;
-    z-index: 2;
-}
-
-.logo-shake {
-    width: 250px;
-    height: 250px;
-    animation: shakeLogo 3s ease-in-out infinite;
-}
-
-.logo-shake img {
-    width: 100%;
-    height: 100%;
-    border-radius: 50%;
-    object-fit: cover;
-}
-
-/* 🔄 Animation de secousse */
-@keyframes shakeLogo {
-    0% {
-        transform: translate(-50%, -50%) translateX(0);
-    }
-    25% {
-        transform: translate(-50%, -50%) translateX(-3px);
-    }
-    50% {
-        transform: translate(-50%, -50%) translateX(3px);
-    }
-    75% {
-        transform: translate(-50%, -50%) translateX(-3px);
-    }
-    100% {
-        transform: translate(-50%, -50%) translateX(0);
-    }
-}
-
-/* 🔒 Texte en bas - "Tout droit réservé à la communauté Medal" */
-.footer-text {
-    position: absolute;
-    bottom: 10px;
+    transform: translate(-50%, -50%);
     text-align: center;
+}
+
+.logo {
+    width: 220px;
+    margin-bottom: 20px;
+}
+
+#status {
+    font-size: 14px;
+    opacity: 0.85;
+    letter-spacing: 1px;
+}
+
+/* Astuces */
+#tips {
+    position: absolute;
+    top: 20px;
     width: 100%;
-    font-family: 'Poppins', sans-serif; /* Poppins en gras */
-    font-size: 10px; /* Taille augmentée pour plus de visibilité */
-    color: #fff;
-    z-index: 2;
+    text-align: center;
+    font-size: 14px;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    animation: fade 6s infinite;
+}
+
+@keyframes fade {
+    0%   { opacity: 0; transform: translateY(-10px); }
+    15%  { opacity: 1; }
+    85%  { opacity: 1; }
+    100% { opacity: 0; transform: translateY(10px); }
 }
