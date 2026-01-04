@@ -76,7 +76,6 @@ body {
 #status {
     font-size: 14px;
     opacity: 0.85;
-    letter-spacing: 1px;
 }
 
 /* Astuces */
@@ -98,3 +97,4 @@ body {
     85%  { opacity: 1; }
     100% { opacity: 0; transform: translateY(10px); }
 }
+
